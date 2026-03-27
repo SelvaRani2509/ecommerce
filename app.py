@@ -319,9 +319,8 @@ def add_user():
 
 # ---------------- Run App ----------------
 
+# Intha lines-ah page-oda last-la replace pannunga
+init_db()
+
 if __name__ == '__main__':
-    if not os.path.exists(DATABASE):
-        init_db()
-    else:
-        init_db()
-    app.run(debug=True)
+    app.run(debug=False)
