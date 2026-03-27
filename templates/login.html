@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Employee Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f0ff, #ede7f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 380px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 15px 35px rgba(140, 110, 200, 0.25);
+            overflow: hidden;
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, #b39ddb, #9575cd);
+            color: white;
+            text-align: center;
+            padding: 28px 20px;
+        }
+
+        .login-header i {
+            font-size: 42px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .login-header h4 {
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .login-header small {
+            opacity: 0.9;
+        }
+
+        .login-body {
+            padding: 28px;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #4a4a4a;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 10px 12px;
+        }
+
+        .form-control:focus {
+            border-color: #9575cd;
+            box-shadow: 0 0 0 0.15rem rgba(149, 117, 205, 0.35);
+        }
+
+        .btn-login {
+            background-color: #9575cd;
+            border: none;
+            color: #fff;
+            border-radius: 10px;
+            padding: 10px;
+            font-weight: 500;
+        }
+
+        .btn-login:hover {
+            background-color: #7e57c2;
+        }
+
+        .login-footer {
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-card">
+
+    <!-- Header -->
+    <div class="login-header">
+        <i class="bi bi-people-fill"></i>
+        <h4>Employee Management</h4>
+        <small>Sign in to your account</small>
+    </div>
+
+    <!-- Body -->
+    <div class="login-body">
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="mb-3">
+                <label class="form-label">
+                    <i class="bi bi-person-fill"></i> Username
+                </label>
+                <input type="text" name="username" class="form-control" required autofocus>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">
+                    <i class="bi bi-lock-fill"></i> Password
+                </label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+
+            <div class="d-grid">
+                <button type="submit" class="btn btn-login">
+                    <i class="bi bi-box-arrow-in-right"></i> Login
+                </button>
+            </div>
+
+            <div class="login-footer">
+                Use your employee account to sign in
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

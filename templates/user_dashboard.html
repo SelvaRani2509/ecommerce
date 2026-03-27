@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+
+{% block title %}User Dashboard - Employee Management{% endblock %}
+
+{% block page_title %}User Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- Welcome Banner -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-4 bg-gradient-welcome text-white d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <div>
+                    <h3 class="fw-bold mb-2">
+                        <i class="bi bi-speedometer2"></i> Welcome, {{ session.name }}!
+                    </h3>
+                    <p class="mb-0 fs-6">
+                        You are logged in as <strong>Normal User</strong>. You can view employee records and your profile.
+                    </p>
+                </div>
+                <div class="mt-3 mt-md-0">
+                    <i class="bi bi-person-badge display-1 opacity-25"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dashboard Cards -->
+<div class="row">
+    <!-- View Employees Card -->
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm border-0 hover-shadow bg-gradient-purple text-white rounded-4">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="text-uppercase mb-2 fw-semibold">View Employees</h6>
+                    <p class="mb-0">Browse employee records</p>
+                </div>
+                <i class="bi bi-person-lines-fill display-4 opacity-25"></i>
+            </div>
+            <div class="card-footer bg-white border-0 text-end rounded-bottom-4">
+                <a href="{{ url_for('employees') }}" class="text-purple text-decoration-none fw-semibold">
+                    View All <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Card -->
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm border-0 hover-shadow bg-gradient-lavender text-white rounded-4">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="text-uppercase mb-2 fw-semibold">Your Profile</h6>
+                    <p class="mb-0">View account details</p>
+                </div>
+                <i class="bi bi-person-circle display-4 opacity-25"></i>
+            </div>
+            <div class="card-footer bg-white border-0 text-end rounded-bottom-4">
+                <a href="{{ url_for('profile') }}" class="text-purple text-decoration-none fw-semibold">
+                    View Profile <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- User Features Section -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-header bg-gradient-soft-purple text-white rounded-top-4">
+                <h5 class="mb-0">
+                    <i class="bi bi-info-circle"></i> User Features
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-secondary">
+                    <div class="col-md-6 mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        View all employee records
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <i class="bi bi-x-circle-fill text-danger me-2"></i>
+                        Cannot create new employees
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <i class="bi bi-x-circle-fill text-danger me-2"></i>
+                        Cannot edit employee information
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <i class="bi bi-x-circle-fill text-danger me-2"></i>
+                        Cannot delete employee records
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <i class="bi bi-check-circle-fill text-success me-2"></i>
+                        View your profile information
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Styles -->
+<style>
+/* Hover animation */
+.hover-shadow {
+    transition: all 0.35s ease;
+}
+.hover-shadow:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(155, 120, 200, 0.35) !important;
+}
+
+/* Pastel Purple Gradients */
+.bg-gradient-welcome {
+    background: linear-gradient(135deg, #b39ddb, #9575cd);
+}
+
+.bg-gradient-purple {
+    background: linear-gradient(135deg, #9fa8da, #7e57c2);
+}
+
+.bg-gradient-lavender {
+    background: linear-gradient(135deg, #ce93d8, #ab47bc);
+}
+
+.bg-gradient-soft-purple {
+    background: linear-gradient(135deg, #9575cd, #7e57c2);
+}
+
+.text-purple {
+    color: #7e57c2;
+}
+
+.card-body p {
+    color: rgba(255,255,255,0.9);
+}
+
+@media (max-width: 768px) {
+    .card-body {
+        text-align: center;
+    }
+}
+</style>
+
+{% endblock %}

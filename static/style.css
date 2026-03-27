@@ -1,0 +1,243 @@
+/* ---------- Global ---------- */
+body {
+    background-color: #f5f0ff; /* pastel purple background */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: linear-gradient(180deg, #b39ddb, #9575cd);
+    color: #fff;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+.sidebar.active {
+    margin-left: -250px;
+}
+
+.sidebar-header {
+    padding: 20px;
+    background: rgba(152, 26, 127, 0.1);
+    text-align: center;
+}
+
+.sidebar-header h3 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Sidebar links */
+.sidebar ul.components {
+    padding: 20px 0;
+}
+
+.sidebar ul li {
+    padding: 8px 20px;
+}
+
+.sidebar ul li a {
+    color: #f3eaff;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+.sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
+/* ---------- Content ---------- */
+.content {
+    width: 100%;
+    padding: 0;
+    transition: all 0.3s;
+}
+
+.content.active {
+    margin-left: -250px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    background: #ede7f6 !important;
+    box-shadow: 0 4px 12px rgba(106, 27, 154, 0.15);
+}
+
+.navbar-brand,
+.navbar span {
+    color: #6a1b9a !important;
+    font-weight: 600;
+}
+
+/* Sidebar toggle button */
+#sidebarCollapse {
+    background: #9575cd;
+    border: none;
+    color: #fff;
+}
+
+#sidebarCollapse:hover {
+    background: #7e57c2;
+}
+
+/* ---------- Cards ---------- */
+/* ---------- Card Hover Animation ---------- */
+.card,
+.feature-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+}
+
+.card:hover,
+.feature-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 18px 35px rgba(106,27,154,0.35);
+}
+
+/* ---------- Tables ---------- */
+.table th {
+    color: #6a1b9a;
+}
+
+/* ---------- Alerts ---------- */
+.alert {
+    border-radius: 12px;
+}
+
+/* ---------- Buttons ---------- */
+.btn-info {
+    background-color: #9575cd;
+    border: none;
+}
+
+.btn-info:hover {
+    background-color: #7e57c2;
+}
+
+/* ---------- Badges ---------- */
+.badge.bg-primary {
+    background-color: #9575cd !important;
+}
+
+.badge.bg-danger {
+    background-color: #ab47bc !important;
+}
+
+.badge.bg-success {
+    background-color: #81c784 !important;
+}
+/* Sidebar menu underline for all items */
+.sidebar ul li a {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* White line under every topic */
+.sidebar ul li a::after {
+    content: "";
+    position: absolute;
+    left: 20px;
+    bottom: 0;
+    width: 60%;
+    height: 1.5px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+}
+
+/* Slightly thicker line on hover */
+.sidebar ul li a:hover::after {
+    height: 2.5px;
+    background-color: #ffffff;
+}
+
+/* ---------- Pastel Purple Employees Page ---------- */
+
+/* Page buttons */
+.btn-purple {
+    background-color: #9575cd;
+    color: #fff;
+    border: none;
+}
+
+.btn-purple:hover {
+    background-color: #7e57c2;
+    color: #fff;
+}
+
+/* Card header */
+.pastel-header {
+    background: linear-gradient(135deg, #ede7f6, #f3eaff);
+    color: #6a1b9a;
+    font-weight: 600;
+    border-bottom: 1px solid #d1c4e9;
+}
+
+/* Table */
+.table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #b39ddb;
+    color: #fff;
+}
+
+.table thead th {
+    border: none;
+}
+
+.table tbody tr:hover {
+    background-color: #f3eaff;
+}
+
+/* Badges */
+.badge.bg-secondary {
+    background-color: #b39ddb !important;
+}
+
+/* Action buttons */
+.btn-warning {
+    background-color: #ffca28;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #e57373;
+    border: none;
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 16px;
+}
+
+.modal-header {
+    background-color: #ede7f6;
+    color: #6a1b9a;
+}
+/* Add New Employee button */
+.btn-primary {
+    background-color: #9575cd !important;   /* pastel purple */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #7e57c2 !important;
+}

@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - Employee Management{% endblock %}
+
+{% block page_title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+
+<!-- Page Background -->
+<style>
+body{
+    background-color:#f5f0ff;
+}
+</style>
+
+<!-- Welcome Banner -->
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="alert shadow-lg rounded-4 d-flex align-items-center p-4"
+             style="background: linear-gradient(135deg,#b39ddb,#9575cd); color:white;">
+            <i class="bi bi-speedometer2 me-3" style="font-size: 2.5rem;"></i>
+            <div>
+                <h3 class="mb-1 fw-bold">Welcome, {{ session.name }}!</h3>
+                <p class="mb-0 fs-6">
+                    You are logged in as <strong>Administrator</strong>. 
+                    Manage all employee records efficiently and oversee system operations.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Summary Cards -->
+<div class="row mb-4">
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm text-white h-100 rounded-4"
+             style="background: linear-gradient(135deg,#9fa8da,#7986cb);">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="text-uppercase mb-1 fw-semibold">Total Employees</h6>
+                    <h2 class="mb-0 fw-bold">{{ employee_count }}</h2>
+                </div>
+                <i class="bi bi-people-fill" style="font-size:3rem;opacity:0.6;"></i>
+            </div>
+            <div class="card-footer bg-transparent border-0 text-end">
+                <a href="{{ url_for('employees') }}" class="text-white fw-semibold text-decoration-none">
+                    View All <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm text-white h-100 rounded-4"
+             style="background: linear-gradient(135deg,#b39ddb,#7e57c2);">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="text-uppercase mb-1 fw-semibold">Quick Actions</h6>
+                    <p class="mb-0 fs-6">Add new employees instantly</p>
+                </div>
+                <i class="bi bi-lightning-fill" style="font-size:3rem;opacity:0.6;"></i>
+            </div>
+            <div class="card-footer bg-transparent border-0 text-end">
+                <a href="{{ url_for('add_employee') }}" class="text-white fw-semibold text-decoration-none">
+                    Add Employee <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+        <div class="card shadow-sm text-white h-100 rounded-4"
+             style="background: linear-gradient(135deg,#ce93d8,#ab47bc);">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h6 class="text-uppercase mb-1 fw-semibold">Your Profile</h6>
+                    <p class="mb-0 fs-6">View and update your account</p>
+                </div>
+                <i class="bi bi-person-circle" style="font-size:3rem;opacity:0.6;"></i>
+            </div>
+            <div class="card-footer bg-transparent border-0 text-end">
+                <a href="{{ url_for('profile') }}" class="text-white fw-semibold text-decoration-none">
+                    View Profile <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Admin Features -->
+<div class="row mt-5">
+    <div class="col-12 mb-4">
+        <h4 class="fw-bold text-purple">
+            <i class="bi bi-grid-fill me-2"></i>Admin Features
+        </h4>
+        <p class="text-muted mb-3">
+            Manage the system efficiently with full CRUD capabilities and employee oversight.
+        </p>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card shadow-sm h-100 border-0 text-white feature-card rounded-4"
+             style="background: linear-gradient(135deg,#b39ddb,#9575cd);">
+            <div class="card-body text-center">
+                <i class="bi bi-plus-circle-fill mb-2" style="font-size:2.2rem;"></i>
+                <h6 class="fw-semibold">Create Employee</h6>
+                <p class="small mb-0">Add new employee records quickly.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card shadow-sm h-100 border-0 text-white feature-card rounded-4"
+             style="background: linear-gradient(135deg,#9fa8da,#7986cb);">
+            <div class="card-body text-center">
+                <i class="bi bi-eye-fill mb-2" style="font-size:2.2rem;"></i>
+                <h6 class="fw-semibold">View Employees</h6>
+                <p class="small mb-0">Access employee information easily.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card shadow-sm h-100 border-0 text-white feature-card rounded-4"
+             style="background: linear-gradient(135deg,#ce93d8,#ab47bc);">
+            <div class="card-body text-center">
+                <i class="bi bi-pencil-square mb-2" style="font-size:2.2rem;"></i>
+                <h6 class="fw-semibold">Edit Employee</h6>
+                <p class="small mb-0">Update employee details securely.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 mb-4">
+        <div class="card shadow-sm h-100 border-0 text-white feature-card rounded-4"
+             style="background: linear-gradient(135deg,#d1c4e9,#9575cd);">
+            <div class="card-body text-center">
+                <i class="bi bi-trash-fill mb-2" style="font-size:2.2rem;"></i>
+                <h6 class="fw-semibold">Delete Employee</h6>
+                <p class="small mb-0">Remove records with confirmation.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <p class="fw-bold fst-italic text-muted" style="font-size:0.95rem;">
+            These operations are restricted to administrators to ensure secure and efficient system management.
+        </p>
+    </div>
+</div>
+
+<!-- Hover Animation -->
+<style>
+.feature-card{
+    transition:transform .3s ease, box-shadow .3s ease;
+}
+.feature-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 25px rgba(106,27,154,.25);
+}
+.text-purple{
+    color:#6a1b9a;
+}
+</style>
+
+{% endblock %}

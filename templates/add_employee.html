@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block title %}Add Employee - Employee Management{% endblock %}
+
+{% block page_title %}Add New Employee{% endblock %}
+
+{% block content %}
+
+<!-- Page background -->
+<style>
+body{
+    background-color:#f5f0ff;
+}
+</style>
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card shadow-lg rounded-4 border-0 animate-on-scroll">
+
+            <!-- Header -->
+            <div class="card-header rounded-top-4"
+                 style="background: linear-gradient(135deg,#b39ddb,#9575cd); color:white;">
+                <h5 class="mb-0 fw-semibold">
+                    <i class="bi bi-person-plus-fill me-1"></i> Add Employee
+                </h5>
+            </div>
+
+            <!-- Body -->
+            <div class="card-body p-4">
+
+                <form method="POST" action="{{ url_for('add_employee') }}">
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-purple">
+                            <i class="bi bi-person-fill"></i> Name
+                        </label>
+                        <input type="text" class="form-control pastel-input" name="name"
+                               placeholder="Enter employee name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-purple">
+                            <i class="bi bi-envelope-fill"></i> Email
+                        </label>
+                        <input type="email" class="form-control pastel-input" name="email"
+                               placeholder="Enter email address" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-purple">
+                            <i class="bi bi-telephone-fill"></i> Phone
+                        </label>
+                        <input type="tel" class="form-control pastel-input" name="phone"
+                               placeholder="Enter phone number" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold text-purple">
+                            <i class="bi bi-briefcase-fill"></i> Role
+                        </label>
+                        <input type="text" class="form-control pastel-input" name="role"
+                               placeholder="e.g. Developer, Manager" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold text-purple">
+                            <i class="bi bi-currency-dollar"></i> Salary
+                        </label>
+                        <input type="number" class="form-control pastel-input" name="salary"
+                               placeholder="Enter salary amount" step="0.01" min="0" required>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex justify-content-end gap-2">
+                        <a href="{{ url_for('employees') }}" class="btn btn-light-purple">
+                            <i class="bi bi-x-circle"></i> Cancel
+                        </a>
+                        <button type="submit" class="btn btn-purple">
+                            <i class="bi bi-check-circle"></i> Add Employee
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Page styles -->
+<style>
+.text-purple{
+    color:#6a1b9a;
+}
+
+/* Input style */
+.pastel-input{
+    border-radius:12px;
+    border:1px solid #d1c4e9;
+    padding:10px 14px;
+}
+
+.pastel-input:focus{
+    border-color:#9575cd;
+    box-shadow:0 0 0 .2rem rgba(149,117,205,.25);
+}
+
+/* Buttons */
+.btn-purple{
+    background-color:#9575cd;
+    color:white;
+    border:none;
+}
+
+.btn-purple:hover{
+    background-color:#7e57c2;
+}
+
+.btn-light-purple{
+    background-color:#ede7f6;
+    color:#6a1b9a;
+    border:none;
+}
+
+.btn-light-purple:hover{
+    background-color:#d1c4e9;
+}
+</style>
+
+{% endblock %}

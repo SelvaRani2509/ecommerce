@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Employee - Employee Management{% endblock %}
+
+{% block page_title %}Edit Employee{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card shadow-sm">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="mb-0"><i class="bi bi-pencil-fill"></i> Edit Employee</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('edit_employee', employee_id=employee.id) }}">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">
+                            <i class="bi bi-person-fill"></i> Name <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="name" name="name" required 
+                               value="{{ employee.name }}" placeholder="Enter employee name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">
+                            <i class="bi bi-envelope-fill"></i> Email <span class="text-danger">*</span>
+                        </label>
+                        <input type="email" class="form-control" id="email" name="email" required 
+                               value="{{ employee.email }}" placeholder="Enter email address">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">
+                            <i class="bi bi-telephone-fill"></i> Phone <span class="text-danger">*</span>
+                        </label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required 
+                               value="{{ employee.phone }}" placeholder="Enter phone number">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="role" class="form-label">
+                            <i class="bi bi-briefcase-fill"></i> Role <span class="text-danger">*</span>
+                        </label>
+                        <input type="text" class="form-control" id="role" name="role" required 
+                               value="{{ employee.role }}" placeholder="Enter job role (e.g., Developer, Manager)">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="salary" class="form-label">
+                            <i class="bi bi-currency-dollar"></i> Salary <span class="text-danger">*</span>
+                        </label>
+                        <input type="number" class="form-control" id="salary" name="salary" required 
+                               step="0.01" min="0" value="{{ employee.salary }}" placeholder="Enter salary amount">
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{{ url_for('employees') }}" class="btn btn-secondary">
+                            <i class="bi bi-x-circle"></i> Cancel
+                        </a>
+                        <button type="submit" class="btn btn-warning">
+                            <i class="bi bi-check-circle"></i> Update Employee
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
